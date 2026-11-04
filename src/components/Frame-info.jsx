@@ -1,4 +1,4 @@
-import Frame2 from "../assets/images/frame2.png";
+import Frame2 from "../assets/images/Frame2.png";
 export default function FrameInfo() {
   return (
     <div className="flex flex-col items-center justify-center gap-8 px-4 pt-16 md:flex-row md:gap-12 lg:gap-17.5">

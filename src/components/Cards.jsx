@@ -1,6 +1,6 @@
 import Apartment from "../assets/images/Apartment.svg";
 import investment from "../assets/images/investment.svg";
-import happy from "../assets/images/happy.svg";
+import happy from "../assets/images/Happy.svg";
 import award from "../assets/images/award.svg";
 export default function Cards() {
 return (
