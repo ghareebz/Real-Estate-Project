@@ -7,8 +7,8 @@ import PalmHillsLogo from "../assets/images/PalmHillsLogo.svg";
 import api from "../assets/utils/axios-instance";
 
 const localDeveloperLogos = new Map([
-  ["hm group", PalmHillsLogo],
-  ["lagoon", HayahCityLogo],
+  ["hm group", HayahCityLogo],
+  ["lagoon", PalmHillsLogo],
 ]);
 
 function DeveloperCard({ developer, zones }) {
