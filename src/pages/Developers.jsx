@@ -2,7 +2,14 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Hero from "../components/Hero";
 import DevelopersImage from "../assets/images/developers-image.png";
+import HayahCityLogo from "../assets/images/HayahCityLogo.svg";
+import PalmHillsLogo from "../assets/images/PalmHillsLogo.svg";
 import api from "../assets/utils/axios-instance";
+
+const localDeveloperLogos = new Map([
+  ["hm group", PalmHillsLogo],
+  ["lagoon", HayahCityLogo],
+]);
 
 function DeveloperCard({ developer, zones }) {
   const [failedCover, setFailedCover] = useState(false);
@@ -10,7 +17,8 @@ function DeveloperCard({ developer, zones }) {
   const projects = Array.isArray(developer.projects) ? developer.projects : [];
   const name = developer.name_en || developer.name_ar || "Developer";
   const cover = projects.find((project) => project.images?.length)?.images[0] || developer.images?.[0];
-  const logo = developer.logo || developer.logoUrl || developer.images?.[0];
+  const logo = localDeveloperLogos.get(name.trim().toLowerCase()) ||
+    developer.logo || developer.logoUrl || developer.images?.[0];
   const locations = [...new Set(projects.map((project) => project.zone?.name_en || zones.find((zone) => zone.id === project.zoneId)?.name_en).filter(Boolean))];
   return (
     <article className="flex w-full max-w-[442px] flex-col rounded-2xl border border-[#eaeaea] bg-white p-3 shadow-[0_4px_4px_0_rgba(0,0,0,0.25)]">
